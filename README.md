@@ -1,5 +1,10 @@
 # single_particle_tracker
 
+This pipleine is developed for extracting trajectories of bacteria particles through the pharynx of C. elegans relative to the lumen.
+
+## Running
+The code can be installed as is and can be run after setting up a virtual environment with the required modules listed in requirements_simplified.txt.
+
 ## Contents
 
 | File | Role |
