@@ -14,7 +14,7 @@ from scipy.ndimage import gaussian_filter1d
 def extract_boundary_points(binary_mask, boundary_type):
     """
     Extracts the upper boundary of frames of lower mask and the lower boundary of frames of upper mask.
-    Parameters:
+    Args:
     - binary_mask: The particular frame with mask
     - boundary_type: Determines whether to extract the upper edge or the lower edge
     Returns the x and y coordinates of the boundary in a 2 dimensional array (N x 2), the maximum and minimum x value where the mask exists.
@@ -157,7 +157,7 @@ def centerline(upper_pts, u_min_x, u_max_x, lower_pts, l_min_x, l_max_x, num_nod
 def extract_frame_number(filename):
     """
     Extracts frame number from filename.
-    Parameters:
+    Args:
     - filename: name of the file containing the masked frame
     Returns the number in title.
     """
@@ -170,7 +170,7 @@ def refine_csv(file_path, scale_limit_px=3.0, spatial_sigma=1.2, temporal_sigma=
     Modifies the coordinates in the csv file as follows:
     1. Uses tanh to compress pixels that are > 3.0px from the major eigenvector  (obtained via SVD) in a single frame.
     2. Filters individual nodes by tracking it across multiple frames to drop major changes caused due to improper masks.
-    Parameters:
+    Args:
     - file_path: path to the csv file
     - scale_limit_px: threshold pixel value (anything above this from centerline will get damped)
     - spatial_sigma: sigma value for gaussian filtering used in step 1
@@ -239,7 +239,7 @@ def create_csv(folders, boundary, input_path, output_path):
     """
     Writes a csv file that is (N * num_nodes) x 5, each row containing 
     frame number, node id, x coordinate, y coordinate, and the global node spacing.
-    Parameters:
+    Args:
     - folders: paths to folders with the upper masks and lower masks
     - boundary: ['upper', 'lower'] for computing the specific edge of each mask
     - input_path: path to the original h5 video
