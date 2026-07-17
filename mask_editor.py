@@ -2478,9 +2478,10 @@ class PyQtMaskEditorWorkspace(QMainWindow):
         for _, layer, _ in active_jobs:
             self._snapshot_layer_frames_for_undo(layer, frame_range)
 
-        from propagator.propagate_edge import _make_batches, _edge_setup, _edge_batch
+        from propagator.propagate_edge import _edge_setup, _edge_batch
         from propagator.propagate_poly import _poly_setup, _poly_batch
-        batches = _make_batches(frame_range[1:])
+        from utils.shared_utils import make_batches
+        batches = make_batches(frame_range[1:])
 
         layer_jobs = []
         for layer_idx, layer, flat_pts in active_jobs:
